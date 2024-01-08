@@ -1,0 +1,40 @@
+.customer-quote {
+    --padding: 24px;
+    --radius: 12px;
+    --border: 1px solid theme(colors.gray-default);
+    padding: var(--padding);
+    border: var(--border);
+    margin: 0;
+    flex: 1 1;
+    display: flex;
+    background: theme(colors.card);
+    box-shadow: 0 8px 24px -8px rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .04);
+    flex-direction: column;
+    transform: translateZ(0);
+}
+
+.customer-quote:first-of-type {
+    border-right: none;
+    border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.customer-quote blockquote {
+    margin: 0;
+}
+
+.customer-quote h3 {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #fafafa;
+    margin-bottom: var(--padding);
+    text-indent: -0.4em;
+}
+
+.customer-quote [data-author=true] {
+    display: block;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 8px;
+    color: #0070f3;
+}

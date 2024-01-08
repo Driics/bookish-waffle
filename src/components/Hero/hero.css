@@ -1,0 +1,457 @@
+
+.home_root {
+    --container-width: 1200px;
+    --container-padding-x: 16px;
+    --letter-spacing-1: -0.01em;
+    --letter-spacing-2: -0.04em;
+    --line-opacity: 0.15;
+    --line-offset: 150px;
+    --line-width: 1px;
+    --line-gap: 5px;
+    --line-fade-stop: 93%;
+    --text-gradient: linear-gradient(180deg, #fff, #adadad);
+    --line-color: hsla(0, 0%, 100%, .2)
+}
+
+.home_root [data-main-heading] {
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: var(--letter-spacing-2);
+    font-weight: 700;
+    color: #fafafa;
+    margin: 0
+}
+
+.home_root [data-main-paragraph] {
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: var(--letter-spacing-1);
+    color: #888;
+    margin: 0
+}
+
+@media (max-width: 480px) {
+    .home_root [data-main-heading] {
+        font-size: 24px
+    }
+
+    .home_root [data-main-paragraph] {
+        font-size: 16px
+    }
+}
+
+.intro_root {
+    --root-padding: 56px;
+    --a-duration: 1.08s;
+    --a-duration-half: calc(var(--a-duration) / 2);
+    --a-delay: 0.15s;
+    --a-easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 100%;
+    max-width: calc(1234px + var(--root-padding) * 2);
+    min-height: 550px;
+    text-align: center;
+    margin: 80px auto 0;
+    padding: 0 var(--root-padding);
+    overflow: hidden;
+    isolation: isolate
+}
+
+.intro_root .intro_gridContainerLine, .intro_root .intro_gridLineBottom:after, .intro_root .intro_gridLineTop:before {
+    --line-color: rgba(255, 255, 255, calc(var(--line-opacity) * 3));
+}
+
+.intro_root .intro_gridLineTop:before {
+    width: 0;
+    animation: intro_width var(--a-duration) var(--a-easing) forwards;
+    animation-delay: var(--a-delay)
+}
+
+.intro_root .intro_gridLineBottom:after {
+    width: 0
+}
+
+.intro_root .intro_title.intro_gridLineBottom:after {
+    animation: intro_width var(--a-duration) var(--a-easing) forwards;
+    animation-delay: calc(var(--a-delay) + .1s)
+}
+
+.intro_root .intro_subtitle.intro_gridLineBottom:after {
+    animation: intro_width var(--a-duration) var(--a-easing) forwards;
+    animation-delay: calc(var(--a-delay) + .2s)
+}
+
+.intro_root .intro_footer.intro_gridLineBottom:after {
+    animation: intro_width var(--a-duration) var(--a-easing) forwards;
+    animation-delay: calc(var(--a-delay) + .3s)
+}
+
+.intro_root .intro_intro > .intro_gridContainerLine[data-side=left], .intro_root .intro_intro > .intro_gridContainerLine[data-side=right] {
+    height: 0%;
+    animation: intro_heightOffset var(--a-duration) var(--a-easing) forwards;
+    animation-delay: calc(var(--a-delay) + .1s)
+}
+
+.intro_root .intro_header .intro_gridContainerLine {
+    height: 0%;
+    animation: intro_height var(--a-duration-half) var(--a-easing) forwards;
+    animation-delay: calc(var(--a-delay) + .1s)
+}
+
+.intro_root .intro_buttons .intro_gridContainerLine {
+    height: 0;
+    animation: intro_heightOffset var(--a-duration) var(--a-easing) forwards;
+    animation-delay: calc(var(--a-delay) + .1s)
+}
+
+.intro_root .intro_gridCircle {
+    opacity: 0;
+    animation: intro_opacity var(--a-duration-half) var(--a-easing) forwards;
+    animation-delay: calc(var(--a-delay) + .4s)
+}
+
+.intro_root .intro_buttons .intro_gridCircle {
+    animation-delay: calc(var(--a-delay) + .8s)
+}
+
+@keyframes intro_width {
+    0% {
+        opacity: 1
+    }
+
+    to {
+        width: calc(100% + var(--line-offset));
+        opacity: .3
+    }
+}
+
+@keyframes intro_heightOffset {
+    0% {
+        opacity: 1
+    }
+
+    to {
+        height: calc(100% + var(--line-offset));
+        opacity: .3
+    }
+}
+
+@keyframes intro_height {
+    0% {
+        opacity: 1
+    }
+
+    to {
+        height: 100%;
+        opacity: .3
+    }
+}
+
+@keyframes intro_opacity {
+    to {
+        opacity: 1
+    }
+}
+
+.intro_header {
+    padding: 32px;
+    position: relative;
+}
+
+.intro_header:not(:has(.intro_notification)) {
+    min-width: 340px;
+}
+
+.intro_header .intro_notification {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 28px;
+    line-height: 1;
+    border-radius: 9999px;
+    padding: 8px;
+    border: 1px solid #333;
+    background: #111;
+    color: #888;
+    font-size: 12px;
+    transition: border-color .1s ease;
+    white-space: nowrap
+}
+
+@media (hover: hover) {
+    .intro_header .intro_notification:hover {
+        border-color: #444
+    }
+}
+
+.intro_header .intro_notification:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 2px #0a0a0a, 0 0 0 4px hsl(210, 100%, 66%)
+}
+
+.intro_header .intro_status {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #0070f3
+}
+
+.intro_title {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    font-size: max(48px, min(5vw, 76px));
+    line-height: 1;
+    letter-spacing: -.05em;
+    padding: 24px;
+    position: relative
+}
+
+.intro_title::selection {
+    background-clip: unset;
+    -webkit-text-fill-color: initial
+}
+
+.intro_break, .intro_title .intro_gridCircle {
+    display: none
+}
+
+.intro_intro {
+    position: relative;
+}
+
+.intro_subtitle {
+    color: #888;
+    font-size: max(15px, min(2vw, 20px));
+    line-height: 1.8;
+    letter-spacing: var(--letter-spacing-1);
+    font-weight: 400;
+    position: relative;
+    padding: 40px 32px;
+    background: var(--geist-background);
+    z-index: 1;
+    width: calc(100% - var(--line-width) * 2);
+    left: var(--line-width)
+}
+
+.intro_subtitle strong {
+    font-weight: 500;
+    color: #fafafa
+}
+
+.intro_subtitle p {
+    margin: 0
+}
+
+.intro_footer {
+    padding: 0;
+    position: relative;
+    width: 100%
+}
+
+.intro_footer a {
+    white-space: nowrap
+}
+
+.intro_buttons {
+    position: relative;
+    height: 100%;
+    padding: 40px
+}
+
+.intro_copy {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: fit-content;
+    text-align: left;
+    font-family: monospace;
+    color: #888;
+    font-size: 13px;
+    line-height: 24px;
+    border: 0;
+    background: none;
+    cursor: copy;
+    padding: 0 12px;
+    border-radius: 9999px
+}
+
+.intro_copy:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 2px #0a0a0a, 0 0 0 4px hsl(210, 100%, 66%)
+}
+
+.intro_copy:focus-visible svg {
+    opacity: 1;
+    right: -28px;
+    transition: none
+}
+
+@media (hover: hover) {
+    .intro_copy:hover svg {
+        transition: opacity .2s ease;
+        opacity: 1
+    }
+}
+
+.intro_copy svg {
+    opacity: 0;
+    position: absolute;
+    right: -16px
+}
+
+.intro_copy svg[data-open=false] {
+    opacity: 0
+}
+
+.intro_gridLineBottom:after, .intro_gridLineTop:before {
+    content: "";
+    position: absolute;
+    width: calc(100% + var(--line-offset));
+    left: calc(var(--line-offset) / 2 * -1);
+    height: var(--line-width);
+    background: linear-gradient(to right, var(--line-color), var(--line-color) 50%, transparent 0, transparent);
+    background-size: var(--line-gap) var(--line-width);
+    -webkit-mask: linear-gradient(to left, var(--geist-background) var(--line-fade-stop), transparent), linear-gradient(to right, var(--geist-background) var(--line-fade-stop), transparent), linear-gradient(#000, #000);
+    -webkit-mask-composite: destination-in;
+    mask-composite: exclude
+}
+
+.intro_gridLineTop:before {
+    top: 0
+}
+
+.intro_gridLineBottom:after {
+    bottom: -.1px
+}
+
+.intro_gridContainerLine {
+    position: absolute;
+    width: var(--line-width);
+    height: 100%;
+    top: 0;
+    background: linear-gradient(180deg, var(--line-color), var(--line-color) 50%, transparent 0, transparent);
+    background-size: var(--line-width) var(--line-gap)
+}
+
+.intro_gridContainerLine[data-side=left] {
+    left: 0;
+}
+
+.intro_gridContainerLine[data-side=right] {
+    right: 0
+}
+
+.intro_gridContainerLine[data-offset] {
+    height: calc(100% + var(--line-offset));
+    top: calc(var(--line-offset) / 2 * -1);
+}
+
+.intro_gridContainerLine[data-fade=true] {
+    -webkit-mask-composite: destination-in;
+    mask-composite: exclude;
+    -webkit-mask: linear-gradient(to top, var(--geist-background) var(--line-fade-stop), transparent), linear-gradient(to bottom, var(--geist-background) var(--line-fade-stop), transparent), linear-gradient(#000, #000);
+}
+
+.intro_gridContainerLine[data-fade=top] {
+    -webkit-mask: linear-gradient(to top, var(--geist-background) var(--line-fade-stop), transparent)
+}
+
+.intro_gridContainerLine[data-fade=bottom] {
+    -webkit-mask: linear-gradient(to bottom, var(--geist-background) var(--line-fade-stop), transparent)
+}
+
+.intro_gridCircle {
+    --size: 73px;
+    --offset: 0px;
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    z-index: 2
+}
+
+.intro_gridCircle[data-side=top-left] {
+    top: calc(var(--size) / 2 * -1);
+    left: calc(var(--size) / 2 * -1 + var(--offset))
+}
+
+.intro_gridCircle[data-side=bottom-right] {
+    bottom: calc(var(--size) / 2 * -1);
+    right: calc(var(--size) / 2 * -1 + var(--offset));
+    transform: rotate(180deg)
+}
+
+@media (max-width: 890px) {
+    .intro_root {
+        padding: 0 32px;
+        margin-top: 0
+    }
+
+    .intro_header {
+        padding: 24px
+    }
+
+    .intro_title .intro_gridCircle {
+        display: block
+    }
+
+    .intro_subtitle {
+        padding: 24px 32px
+    }
+
+    .intro_buttons .intro_gridCircle, .intro_buttons .intro_gridContainerLine, .intro_header .intro_gridContainerLine {
+        display: none
+    }
+
+    .intro_gridCircle {
+        --size: 24px
+    }
+
+    .intro_gridCircle path {
+        stroke-dasharray: 5 5
+    }
+
+    .intro_break {
+        display: block
+    }
+}
+
+@media (max-width: 420px) {
+    .intro_root {
+        padding: 0
+    }
+
+    .intro_buttons {
+        padding: 24px
+    }
+
+    .intro_title {
+        line-height: 1.1
+    }
+
+    .intro_gridContainerLine[data-side=left] {
+        left: 32px
+    }
+
+    .intro_gridContainerLine[data-side=right] {
+        right: 32px
+    }
+
+    .intro_gridCircle {
+        --offset: 32px
+    }
+
+    .intro_subtitle {
+        background: transparent
+    }
+
+    .intro_subtitle p {
+        margin: 0 auto;
+        max-width: 272px
+    }
+}
+
+.intro_gridCircle {
+    filter: invert(1)
+}
