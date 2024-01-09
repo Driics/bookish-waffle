@@ -76,3 +76,8 @@
   -webkit-mask-image: linear-gradient(90deg,#fff 98%, transparent);
   mask-image: linear-gradient(90deg,#fff 98%,transparent);
 }
+
+img, video {
+  height: auto;
+  max-width: 100%;
+}

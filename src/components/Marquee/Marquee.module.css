@@ -1,0 +1,37 @@
+.imgTicker {
+    animation: ticker-kf 80s linear infinite;
+}
+
+.imgTicker img {
+    margin-right: 120px;
+}
+
+@media (max-width: 640px) {
+    .imgTicker {
+        animation: ticker-kf-mobile 60s linear infinite;
+    }
+
+    .imgTicker img {
+        margin-right: 4rem;
+    }
+}
+
+@keyframes ticker-kf {
+    0% {
+        transform: translateZ(0);
+    }
+
+    100% {
+        transform: translate3d(-1000px, 0, 0);
+    }
+}
+
+@keyframes ticker-kf-mobile {
+    0% {
+        transform: translateZ(0);
+    }
+
+    100% {
+        transform: translate3d(-800px, 0, 0);
+    }
+}

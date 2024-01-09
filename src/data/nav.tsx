@@ -4,8 +4,12 @@ import {data as DevelopersData} from '@/data/Developers'
 export const menu = {
     primaryNav: [
         {
-            title: 'Docs',
+            title: 'Библиотека',
             url: '/docs',
+        },
+        {
+            title: 'О нас',
+            url: '/about',
         }
     ],
 }

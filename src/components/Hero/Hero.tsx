@@ -36,7 +36,7 @@ const Hero = () => (
             <div aria-hidden="true" className="intro_gridContainerLine" data-fade="true" data-offset="true"
                  data-side="left"/>
             <h1 className={`intro_title intro_gridLineBottom`}>
-                Unleash the Power of Convolutional Networks
+                Раскройте мощь сверточных сетей
                 <svg
                     aria-hidden="true"
                     className={`intro_gridCircle`}
@@ -69,8 +69,7 @@ const Hero = () => (
             </h1>
             <div className="intro_subtitle intro_gridLineBottom">
                 <p>
-                    Revolutionize your understanding of image processing with <strong>convolutional
-                    networks</strong>.
+                    Поднимите свое понимание обработки изображений с помощью <strong>сверточных сетей</strong>.
                 </p>
             </div>
             <div aria-hidden="true" className="intro_gridContainerLine" data-fade="true" data-offset="true"
