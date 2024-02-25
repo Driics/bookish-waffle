@@ -5,6 +5,7 @@ export const ImageOptimizationAnim = () => {
         <div className="optimizations_root">
             <div className="optimizations_window" data-variant="large">
                 <div style={{
+                    // @ts-ignore
                     "--stack-flex": "initial",
                     "--stack-direction": "column",
                     "--stack-align": "center",
