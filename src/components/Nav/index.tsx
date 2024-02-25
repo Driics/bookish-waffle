@@ -6,11 +6,9 @@ import MenuItem from "@/components/Nav/MenuItem";
 import {cn} from "@/lib/utils";
 import {
     NavigationMenu,
-    NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import HamburgerButton from "@/components/Nav/HamburgerMenu";
 
@@ -67,20 +65,7 @@ const Nav = () => {
                                 >
                                     <NavigationMenuList>
                                         {menu.primaryNav.map((menuItem) =>
-                                            menuItem.hasDropdown ? (
-                                                <NavigationMenuItem className="text-sm font-medium"
-                                                                    key={menuItem.title}>
-                                                    <NavigationMenuTrigger
-                                                        className="bg-transparent text-secondary hover:text-default data-[state=open]:!text-primary data-[radix-collection-item]:focus-visible:ring-2 data-[radix-collection-item]:focus-visible:ring-foreground-lighter data-[radix-collection-item]:focus-visible:text-foreground p-2 font-bold h-auto">
-                                                        {menuItem.title}
-                                                    </NavigationMenuTrigger>
-                                                    <NavigationMenuContent
-                                                        className={cn('rounded-xl', menuItem.dropdownContainerClassName)}
-                                                    >
-                                                        {menuItem.dropdown}
-                                                    </NavigationMenuContent>
-                                                </NavigationMenuItem>
-                                            ) : (
+                                            (
                                                 <NavigationMenuItem className="text-sm font-medium"
                                                                     key={menuItem.title}>
                                                     <NavigationMenuLink asChild>
